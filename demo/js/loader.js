@@ -789,6 +789,7 @@ $(function() {
 						</thead>
 						<tbody></tbody>
 					</table>
+				<p>Convert the exported .s3m file on <a href="https://www.coolutils.com/online/IT-to-MP3">coolutils.com</a> to MP3.</p>
 				`);
 
 				for (const musicObject of embeddedMusic) {
@@ -923,8 +924,8 @@ $(function() {
 		} else {
 			const allBrushData = package.getAllBrushData();
 
-			const previewWidth  = 1920;
-			const previewHeight = 1080;
+			const previewWidth  = 1840;1920;
+			const previewHeight = 800;1080;
 
 			const {scene, camera, renderer} = getThreeSetup(previewWidth, previewHeight);
 
@@ -1157,8 +1158,8 @@ $(function() {
 
 	function showBrushPreview(brushClass, brushProperties, modelInfo, polysArray) {
 		const previewArea   = $("#brush-viewer");
-		const previewWidth  = 1280;
-		const previewHeight = 720;
+		const previewWidth  = 500;1280;
+		const previewHeight = 800;720;
 
 		const {scene, camera, renderer, geometry} = getThreeSetup(previewWidth, previewHeight);
 
@@ -1350,8 +1351,8 @@ $(function() {
 		console.log(meshData);
 
 		// Canvas size
-		const previewWidth  = 1120;
-		const previewHeight = 630;
+		const previewWidth  = 600;1120;
+		const previewHeight = 800;630;
 
 		// Three.js setup
 		const {scene, camera, renderer, geometry} = getThreeSetup(previewWidth, previewHeight);
@@ -1448,14 +1449,7 @@ $(function() {
 		renderer.setSize(previewWidth, previewHeight);
 
 		$("#mesh-viewer .canvas-wrapper").html(renderer.domElement).append(`
-			<div id="toggle-wireframe">Show wireframe</div>
-			<div class="controls-info">
-				<p><strong>Controls</strong></p>
-				<p>Left click: rotate</p>
-				<p>Right click: move</p>
-				<p>Middle click: zoom</p>
-			</div>
-		`);
+			<div id="toggle-wireframe">Show wireframe</div>`);
 
 		const clip = THREE.AnimationClip.CreateFromMorphTargetSequence(animationSequence.name, geometry.morphAttributes.position, animationSequence.rate);
 
@@ -1481,8 +1475,8 @@ $(function() {
 
 	function showAnimSequenceFrame(meshObject, meshData, animationSequence, frameNumber) {
 		// Canvas size
-		const previewWidth  = 1120;
-		const previewHeight = 630;
+		const previewWidth  = 600;1120;
+		const previewHeight = 800;630;
 
 		// Three.js setup
 		const {scene, camera, renderer, geometry} = getThreeSetup(previewWidth, previewHeight);
@@ -1589,8 +1583,8 @@ $(function() {
 
 	function drawSkeletalMesh(meshObject, meshData) {
 		// Canvas size
-		const previewWidth  = 1120;
-		const previewHeight = 630;
+		const previewWidth  = 600;1120;
+		const previewHeight = 800;630;
 
 		// Three.js setup
 		const {scene, camera, renderer, geometry} = getThreeSetup(previewWidth, previewHeight);
@@ -2526,7 +2520,7 @@ $(function() {
 
 			if (!$("body").is(".dragging-file")) {
 				$("body").addClass("dragging-file");
-				$(".file-input-wrapper p").text("Drop file anywhere to begin");
+				$(".file-input-wrapper p").text("Drop file here to begin.");
 			}
 		}
 
@@ -2535,7 +2529,7 @@ $(function() {
 
 			if ($("body").is(".dragging-file")) {
 				$("body").removeClass("dragging-file");
-				$(".file-input-wrapper p").text("Drag file anywhere to begin");
+				$(".file-input-wrapper p").text("Click here to browse for packages or drag a file here to begin.");
 			}
 		}
 
