@@ -1,3 +1,5 @@
+/* Package Explorer */
+const scriptUrl = document.currentScript.src;
 $(function() {
 	initialisePage();
 
@@ -673,9 +675,28 @@ $(function() {
 			})
 		}
 	}
+	
+	(function($) {
+		$.getLocalScript = function(url, options) {
+			var dfd = $.Deferred();
+			var script = document.createElement("script");
+			script.type = "text/javascript";
+			script.src = url;
+	
+			script.onload = function() {
+				dfd.resolve(script, "success");
+			};
+			script.onerror = function() {
+				dfd.reject(script, "error");
+			};
+	
+			document.head.appendChild(script);
+			return dfd.promise();
+		};
+	})(jQuery);
 
 	function loadScriptsSync(scriptsArray, onSuccess) {
-		$.getScript(scriptsArray.shift()).always(function(script, textStatus) {
+		$.getLocalScript(scriptsArray.shift()).always(function(script, textStatus) {
 			if (textStatus === "success") {
 				if (scriptsArray.length === 0) {
 					onSuccess();
@@ -691,9 +712,10 @@ $(function() {
 	function loadThreeJs(callback) {
 		$("body").addClass("loading-three-js");
 
+		const scriptUrlPath = scriptUrl.substring(0, scriptUrl.lastIndexOf("/") + 1);
 		loadScriptsSync([
-			"js/three.min.js",
-			"js/three-orbit-controls.js",
+			scriptUrlPath + "three.min.js",
+			scriptUrlPath + "three-orbit-controls.js",
 		], function() {
 			$("body").removeClass("loading-three-js");
 			callback();
