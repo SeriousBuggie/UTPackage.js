@@ -938,6 +938,10 @@ $(function() {
 					// Convert properties array to object for convenience
 					const brushProps = {};
 					brush.brush.properties.forEach(p => brushProps[p.name.toLowerCase()] = p.value);
+					
+					if (brushProps.prepivot) {
+						geometry.translate(-brushProps.prepivot.x, -brushProps.prepivot.z, -brushProps.prepivot.y);
+					}
 
 					// Set scaling
 					if (brushProps.mainscale) {
@@ -958,6 +962,8 @@ $(function() {
 
 					// Set rotation
 					if (brushProps.rotation) {
+						mesh.rotation.order = "YZX";
+						
 						mesh.rotation.x = utRotationToRadians(brushProps.rotation.roll);
 						mesh.rotation.y = -utRotationToRadians(brushProps.rotation.yaw);
 						mesh.rotation.z = -utRotationToRadians(brushProps.rotation.pitch);
@@ -967,6 +973,12 @@ $(function() {
 						mesh.position.x = brushProps.location.x;
 						mesh.position.y = brushProps.location.z;
 						mesh.position.z = brushProps.location.y;
+					}
+					
+					if (brushProps.postscale) {
+						mesh.scale.x = brushProps.postscale.x;
+						mesh.scale.y = brushProps.postscale.z;
+						mesh.scale.z = brushProps.postscale.y;
 					}
 
 					scene.add(mesh);
