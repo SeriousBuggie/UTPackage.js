@@ -1,5 +1,6 @@
 /* Package Explorer */
 const scriptUrl = document.currentScript.src;
+const scriptUrlPath = scriptUrl.substring(0, scriptUrl.lastIndexOf("/") + 1);
 $(function() {
 	initialisePage();
 
@@ -712,7 +713,6 @@ $(function() {
 	function loadThreeJs(callback) {
 		$("body").addClass("loading-three-js");
 
-		const scriptUrlPath = scriptUrl.substring(0, scriptUrl.lastIndexOf("/") + 1);
 		loadScriptsSync([
 			scriptUrlPath + "three.min.js",
 			scriptUrlPath + "three-orbit-controls.js",
@@ -731,9 +731,10 @@ $(function() {
 			if (!musicTab.hasClass("loading")) {
 				musicTab.addClass("loading");
 
+				const subfolder = scriptUrlPath.substring(scriptUrlPath.length - 4) === '/js/' ? 'mod-player/' : '';
 				loadScriptsSync([
-					"js/mod-player/scriptprocessor_player.js",
-					"js/mod-player/backend_xmp.js",
+					scriptUrlPath + subfolder + "scriptprocessor_player.js",
+					scriptUrlPath + subfolder + "backend_xmp.js",
 				], function() {
 					// All scripts loaded - initialise ScriptNodePlayer then call function again
 					musicTab.addClass("loaded-script-xmp");
