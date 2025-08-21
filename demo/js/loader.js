@@ -1100,7 +1100,7 @@ $(function() {
 	}
 
 	function utRotationToRadians(rotation) {
-		return Math.PI * 2 * rotation / 0x10000;
+		return Math.PI * 2 * (rotation & 0xFFFF) / 0x10000;
 	}
 
 	function getLineColour(brushClass, brushProperties) {
