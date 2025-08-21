@@ -410,6 +410,11 @@ body.dragging-file .file-input-wrapper {
 #tab-dependencies .type-texture { background-image: url("../icons/icon-texture.png"); }
 #tab-dependencies .type-unknown { background-image: url("../icons/icon-unknown.png"); }
 
+p a:link {
+	text-decoration: none;
+	color: #2F81F7;
+}
+
 /* Music playback button */
 .toggle-playback,
 #tab-music .download {
