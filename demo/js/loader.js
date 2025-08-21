@@ -750,7 +750,9 @@ $(function() {
 							// Restore play icon
 							$el.attr("data-status", "paused");
 
-							// TODO: allow playback more than once
+							// allow playback more than once
+							const player = window[$el.attr("data-id")].player;
+							player.seekPlaybackPosition(0);
 						})
 					}
 
