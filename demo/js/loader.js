@@ -1014,6 +1014,7 @@ $(function() {
 			const controls = new OrbitControls(camera, renderer.domElement);
 
 			controls.maxDistance = 0x10000;
+			controls.screenSpacePanning = true;
 
 			scene.add(camera);
 
