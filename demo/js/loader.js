@@ -976,7 +976,7 @@ $(function() {
 						
 						mesh.rotation.x = utRotationToRadians(brushProps.rotation.roll);
 						mesh.rotation.y = -utRotationToRadians(brushProps.rotation.yaw);
-						mesh.rotation.z = -utRotationToRadians(brushProps.rotation.pitch);
+						mesh.rotation.z = utRotationToRadians(brushProps.rotation.pitch);
 					}
 
 					if (brushProps.location) {
