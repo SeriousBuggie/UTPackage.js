@@ -1222,6 +1222,7 @@ $(function() {
 		const controls = new OrbitControls(camera, renderer.domElement);
 
 		controls.autoRotate = true;
+		controls.screenSpacePanning = true;
 
 		scene.add(camera);
 
@@ -1452,6 +1453,7 @@ $(function() {
 
 		controls.maxDistance = 0x10000;
 		controls.autoRotate = true;
+		controls.screenSpacePanning = true;
 
 		scene.add(camera);
 
@@ -1570,6 +1572,7 @@ $(function() {
 
 		controls.maxDistance = 0x10000;
 		controls.autoRotate = true;
+		controls.screenSpacePanning = true;
 
 		scene.add(camera);
 
@@ -1653,6 +1656,7 @@ $(function() {
 
 		controls.maxDistance = 0x10000;
 		controls.autoRotate = true;
+		controls.screenSpacePanning = true;
 
 		scene.add(camera);
 
