@@ -404,6 +404,13 @@ body.dragging-file .file-input-wrapper {
 #tab-dependencies .group-list .texture-name {
 	/* font: normal 16px/1.4 Courier, Consolas, monospace; */
 }
+
+#tab-dependencies .type-music   { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><text x="0" y="64" font-size="64" fill="white">🎵</text></svg>'); }
+#tab-dependencies .type-sound   { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><text x="0" y="64" font-size="64" fill="white">🔊</text></svg>'); }
+#tab-dependencies .type-system  { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><text x="0" y="64" font-size="64" fill="white">⚙</text></svg>'); }
+#tab-dependencies .type-texture { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><text x="0" y="64" font-size="64" fill="white">🖌</text></svg>'); }
+#tab-dependencies .type-unknown { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><text x="0" y="64" font-size="64" fill="white">❓</text></svg>'); }
+
 #tab-dependencies .type-music   { background-image: url("../icons/icon-music.png");   }
 #tab-dependencies .type-sound   { background-image: url("../icons/icon-sound.png");   }
 #tab-dependencies .type-system  { background-image: url("../icons/icon-system.png");  }
@@ -427,10 +434,13 @@ p a:link {
 	height: 32px;
 	width: 32px;
 }
+[data-status="paused"]  { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><text x="0" y="64" font-size="64" fill="white">▶</text></svg>'); }
+[data-status="playing"] { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><text x="0" y="64" font-size="64" fill="white">⏸</text></svg>'); }
 [data-status="paused"]  { background-image: url("../icons/music-play.png"); }
 [data-status="playing"] { background-image: url("../icons/music-pause.png"); }
 
 /* Music download button */
+#tab-music .download { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64"><text x="0" y="64" font-size="64" fill="white">📥</text></svg>'); }
 #tab-music .download { background-image: url("../icons/icon-download.png"); }
 
 #tab-music td.buttons {
