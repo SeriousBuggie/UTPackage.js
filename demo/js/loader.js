@@ -1,7 +1,9 @@
 /* Package Explorer */
 const scriptUrl = document.currentScript.src;
-const scriptUrlPath = scriptUrl.substring(0, scriptUrl.lastIndexOf("/") + 1);
 $(function() {
+	const scriptUrlPath = scriptUrl.substring(0, scriptUrl.lastIndexOf("/") + 1);
+	let globalMusicPlayer = false;
+
 	initialisePage();
 
 	// Globally accessible object for DataTables instances
@@ -96,6 +98,9 @@ $(function() {
 					$("[href='#tab-scripts'] .count").text(`(${counts.textbuffer || 0})`);
 					$("[href='#tab-brushes'] .count").text(`(${package.getAllBrushObjects().length})`);
 					$("[href='#tab-meshes'] .count").text(`(${(counts.mesh || 0) + (counts.lodmesh || 0) + (counts.skeletalmesh || 0)})`);
+					
+					// Stop play music if we play some.
+					if (globalMusicPlayer) globalMusicPlayer.pause();
 				}
 			}
 
@@ -837,6 +842,7 @@ $(function() {
 						onCompletion();
 					} else {
 						player = ScriptNodePlayer.getInstance();
+						globalMusicPlayer = player;
 
 						player.loadMusicFromTypedArray(
 							`${musicName}.${musicData.format}`,
